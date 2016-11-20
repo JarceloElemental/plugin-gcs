@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8438b8da68ede25996c26f6604214812",
-    "content-hash": "0744d6f0d33859ec6968b717c8eccced",
+    "hash": "b3507420c82f0e4417a331ceed144a39",
+    "content-hash": "ce9fe3c25980056febd67c56bfb991f7",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -100,21 +100,21 @@
         },
         {
             "name": "google/cloud",
-            "version": "v0.8.0",
+            "version": "v0.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GoogleCloudPlatform/google-cloud-php.git",
-                "reference": "79a765fdcb2be9e756f8bf9283ad3626cd2f61d4"
+                "reference": "397f0f648b6ff3895753ac8fcea154302eda5c7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/79a765fdcb2be9e756f8bf9283ad3626cd2f61d4",
-                "reference": "79a765fdcb2be9e756f8bf9283ad3626cd2f61d4",
+                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/397f0f648b6ff3895753ac8fcea154302eda5c7f",
+                "reference": "397f0f648b6ff3895753ac8fcea154302eda5c7f",
                 "shasum": ""
             },
             "require": {
                 "google/auth": "0.10",
-                "guzzlehttp/guzzle": "~5.2|~6.0",
+                "guzzlehttp/guzzle": "^5.3|^6.0",
                 "guzzlehttp/psr7": "^1.2",
                 "monolog/monolog": "~1",
                 "php": ">=5.5",
@@ -122,12 +122,16 @@
                 "rize/uri-template": "~0.3"
             },
             "require-dev": {
+                "erusev/parsedown": "^1.6",
+                "google/gax": "^0.3",
+                "google/proto-client-php": "^0.5",
                 "james-heinrich/getid3": "^1.9",
                 "league/json-guard": "^0.3",
-                "phpdocumentor/phpdocumentor": "2.8.*",
+                "phpdocumentor/reflection": "^3.0",
                 "phpunit/phpunit": "4.8.*",
                 "squizlabs/php_codesniffer": "2.*",
-                "symfony/console": "2.*"
+                "symfony/console": "^3.0",
+                "vierbergenlars/php-semver": "^3.0"
             },
             "suggest": {
                 "google/gax": "Required to support gRPC",
@@ -178,7 +182,7 @@
                 "translate",
                 "vision"
             ],
-            "time": "2016-09-09 14:17:08"
+            "time": "2016-11-14 22:06:59"
         },
         {
             "name": "guzzlehttp/guzzle",
