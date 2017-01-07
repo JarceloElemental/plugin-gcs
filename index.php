@@ -27,18 +27,21 @@ Short Name: gcs
 
   function gcs_upload($resource) {
     $bucket = get_gcs_bucket();
+    $options = [
+      'predefinedAcl' => 'publicRead'
+    ];
     if (osc_keep_original_image()) {
-      $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '_original.' . $resource['s_extension'], 'r'));
+      $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '_original.' . $resource['s_extension'], 'r'), $options);
     }
-    $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '.' . $resource['s_extension'], 'r'));
-    $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '._preview.' . $resource['s_extension'], 'r'));
-    $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '.thumbnail.' . $resource['s_extension'], 'r'));
+    $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '.' . $resource['s_extension'], 'r'), $options);
+    $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '_preview.' . $resource['s_extension'], 'r'), $options);
+    $bucket->upload(fopen(osc_base_path() . $resource['s_path'] . $resource['pk_i_id'] . '_thumbnail.' . $resource['s_extension'], 'r'), $options);
     gcs_unlink_resource($resource);
   }
 
   # http://storage.googleapis.com/uspto-pair/applications/05900002.zip
   function gcs_resource_path($path) {
-    return "http://storage.googleapis.com/". osc_get_preference('bucket', 'gcs') ."/". str_replace(osc_base_url().osc_resource_field("s_path"), '', $path);
+    return "https://storage.googleapis.com/". osc_get_preference('bucket', 'gcs') ."/". str_replace(osc_base_url().osc_resource_field("s_path"), '', $path);
   }
 
   function get_gcs_bucket() {
